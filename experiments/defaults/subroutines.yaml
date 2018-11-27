@@ -1,0 +1,74 @@
+# ==============================================
+#                         Acquisition optimizers
+# ==============================================
+random:
+  joint:
+    num_to_optimize: 256 #acts as the shard_size
+    num_options: 256 #keep same as num_to_optimize
+    eval_limit: 1048576 #we stop according to time
+
+  greedy:
+    num_to_optimize: 64 #acts as the shard_size
+    num_options: 64 #doesn't really get used
+    eval_limit: 1048576 #we stop according to time
+
+
+sgd:
+  joint:
+    num_to_optimize : 64 #num. starts
+    num_options: 1024 #num. options for starts
+    batch_size: 128 #num. samples per step
+    step_limit: 10000 #we stop according to time
+  greedy:
+    num_to_optimize : 32 #num. starts
+    num_options: 256 #num. options for starts
+    batch_size: 128 #num. samples per step
+    step_limit: 10000 #we stop according to time
+
+
+scipy:
+  joint:
+    num_to_optimize : 64 #num. starts
+    num_options: 1024 #num. options for starts
+    maxiter: 10000 #we stop according to time
+  greedy:
+    num_to_optimize : 32 #num. starts
+    num_options: 256 #num. options for starts
+    maxiter: 10000 #we stop according to time
+
+
+nlopt:
+  joint:
+    num_to_optimize : 1 #num. starts
+    num_options: 1 #num. options for starts
+    maxfun : 10000 #we stop according to time
+  greedy:
+    num_to_optimize : 1 #num. starts
+    num_options: 1 #num. options for starts
+    maxfun : 10000 #we stop according to time
+
+
+cmaes:
+  joint:
+    num_to_optimize : 64 #population size
+    num_options: 64 #keep same as num_to_optimize
+    step_limit : 10000 #we stop according to time
+  greedy:
+    num_to_optimize : 64 #population size
+    num_options: 64 #keep same as num_to_optimize
+    step_limit : 10000 #we stop according to time
+
+
+halving:
+  joint:
+    num_to_optimize: 256 #acts as the shard_size
+    num_options: 256 #keep same as num_to_optimize
+    eval_limit: 1048576 #we stop according to time
+    min_samples: 128 #min. sample count for halving iterations
+    expon_step: 1 #power of 2 to iterate by
+  greedy:
+    num_to_optimize: 64 #acts as the shard_size
+    num_options: 64 #doesn't really get used
+    eval_limit: 1048576 #we stop according to time
+    min_samples: 128 #min. sample count for halving iterations
+    expon_step: 1 #power of 2 to iterate by
